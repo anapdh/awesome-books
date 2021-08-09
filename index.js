@@ -10,10 +10,6 @@ Book.prototype.addBook = function (ttl, auth) {
   books.push(book);
 };
 
-// Book.prototype.removeBook = function (ttl) {
-
-// }
-
 Book.prototype.getBooks = function () {
   const list = document.getElementById('books-list');
   for (let i = 0; i < books.length; i++) {
@@ -54,6 +50,3 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
 
 document.addEventListener('DOMContentLoaded', Book.prototype.getBooks());
 
-// Book.prototype.deleteBook().addEventListener('click', (e) => {
-// e.target;
-// });
