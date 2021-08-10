@@ -3,21 +3,31 @@ function Book(title, author) {
   this.author = author;
 }
 
-const books = [new Book('Harry Potter', 'J.K. Rowling'), new Book('Macbeth', 'William Shakespeare')];
+let myBooks = [new Book('Harry Potter', 'J.K. Rowling'), new Book('Macbeth', 'William Shakespeare')];
+
+if (localStorage.length > 0) {
+  myBooks = JSON.parse(localStorage.myBooks);
+}
+  
+function updateLocalStorage() {
+  localStorage.myBooks = JSON.stringify(myBooks);
+}
+  
 
 Book.prototype.addBook = function (ttl, auth) {
   const book = new Book(ttl, auth);
-  books.push(book);
+  myBooks.push(book);
+  updateLocalStorage();
 };
 
 Book.prototype.getBooks = function () {
   const list = document.getElementById('books-list');
-  for (let i = 0; i < books.length; i += 1) {
+  for (let i = 0; i < myBooks.length; i += 1) {
     const row = document.createElement('tr');
     const td1 = document.createElement('td');
     const td2 = document.createElement('td');
-    td1.innerHTML = `${books[i].title}`;
-    td2.innerHTML = `${books[i].author}`;
+    td1.innerHTML = `${myBooks[i].title}`;
+    td2.innerHTML = `${myBooks[i].author}`;
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = 'Remove';
     deleteBtn.setAttribute('id', i);
@@ -35,9 +45,9 @@ Book.prototype.getBooks = function () {
 
 Book.prototype.deleteBook = function (index) {
   if (index > -1) {
-    books.splice(index, 1);
+    myBooks.splice(index, 1);
   }
-  console.log(books);
+  updateLocalStorage();
 };
 
 document.getElementById('book-form').addEventListener('submit', (e) => {
@@ -48,15 +58,15 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
   const list = document.getElementById('books-list');
   const row = document.createElement('tr');
   row.innerHTML = `
-      <td>${books[books.length - 1].title}</td>
-      <td>${books[books.length - 1].author}</td>
+      <td>${myBooks[myBooks.length - 1].title}</td>
+      <td>${myBooks[myBooks.length - 1].author}</td>
     `;
   const deleteBtn = document.createElement('button');
   deleteBtn.innerHTML = 'Remove';
-  deleteBtn.setAttribute('id', books.length - 1);
+  deleteBtn.setAttribute('id', myBooks.length - 1);
   row.appendChild(deleteBtn);
   deleteBtn.addEventListener('click', () => {
-    Book.prototype.deleteBook(books.length - 1);
+    Book.prototype.deleteBook(myBooks.length - 1);
     deleteBtn.parentElement.remove();
   });
   list.appendChild(row);
