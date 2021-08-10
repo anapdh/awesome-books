@@ -8,11 +8,10 @@ let myBooks = [new Book('Harry Potter', 'J.K. Rowling'), new Book('Macbeth', 'Wi
 if (localStorage.length > 0) {
   myBooks = JSON.parse(localStorage.myBooks);
 }
-  
+
 function updateLocalStorage() {
   localStorage.myBooks = JSON.stringify(myBooks);
 }
-  
 
 Book.prototype.addBook = function (ttl, auth) {
   const book = new Book(ttl, auth);
