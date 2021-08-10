@@ -9,26 +9,20 @@ class Book {
   static addBook(ttl, auth) {
     const book = new Book(ttl, auth);
     this.myBooks.push(book);
-    updateLocalStorage();
-  };
+    localStorage.myBooks = JSON.stringify(this.myBooks);
+  }
 
   static deleteBook(index) {
     if (index > -1) {
       this.myBooks.splice(index, 1);
     }
-    updateLocalStorage();
-  };
+    localStorage.myBooks = JSON.stringify(this.myBooks);
+  }
 }
 
 if (localStorage.length > 0) {
   Book.myBooks = JSON.parse(localStorage.myBooks);
 }
-
-// GLOBAL FUNCTIONS
-
-const updateLocalStorage = () => {
-  localStorage.myBooks = JSON.stringify(Book.myBooks);
-};
 
 const getBooks = () => {
   const list = document.getElementById('books-list');
@@ -69,7 +63,8 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
   deleteBtn.setAttribute('id', Book.myBooks.length - 1);
   row.appendChild(deleteBtn);
   deleteBtn.addEventListener('click', () => {
-    Book.deleteBook(Book.myBooks.length - 1);
+    let bookId = parseInt(deleteBtn.getAttribute('id'));
+    Book.deleteBook(bookId);
     deleteBtn.parentElement.remove();
   });
   list.appendChild(row);
