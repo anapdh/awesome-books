@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,33 +8,37 @@
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
+
 <body>
   <h1>Awesome books!</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <td><strong>Title</strong></td>
-        <td><strong>Author</strong></td>
-      </tr>
-    </thead>
-    <tbody id="books-list">
-      
-    </tbody>
-  </table>
+  <div class="container table-wrapper">
+    <table>
+      <tbody id="books-list">
+        <tr>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <form id="book-form">
-    <label for="title">Title</label>
-    <input type="text" id="title" name="title">
-    <br>
+  <div class="container form-wrapper">
+    <h1>Add a new book!</h1>
+    <form id="book-form">
+      <div class="inputs">
+        <label for="title"></label>
+        <input type="text" id="title" name="title" placeholder="Title">
+      </div>
+      <div class="inputs">
+        <br>
+        <label for="author"></label>
+        <input type="text" id="author" name="author" placeholder="Author">
+        <br>
+      </div>
+      <button type="submit" id="submit-btn">Add Book</button>
+    </form>
+  </div>
 
-    <label for="author">Author</label>
-    <input type="text" id="author" name="author">
-    <br>
-
-    <button type="submit" id="submit-btn">Add Book</button>
-  </form>
-  
-<script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
+
 </html>

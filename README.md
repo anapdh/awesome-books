@@ -7,11 +7,16 @@
  - You can add a book.
  - It will display your added books.
  - It has a button to remove a book.
+ - Books are saved in localStorage.
+ - It has a style following the given general layout.
  <!-- - It has a button to change the read status of the book. -->
-
 ## Built With
 
 - Html, CSS, and JavaScript
+
+## Live Demo
+
+[Site](https://anapdh.github.io/awesome-books/)
 
 ## Getting Started
 
@@ -24,7 +29,6 @@ You can download the code to your personal computer cloning the repository using
 ```
 git clone
 ```
-
 ### Usage
 
 To run this project you only need to open the index.html file in a web browser.
