@@ -65,6 +65,9 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
     Book.addBook(title, author);
     const list = document.getElementById('books-list');
     const row = document.createElement('tr');
+    if ((Book.myBooks.length - 1) % 2 === 0){
+      row.setAttribute('class', 'color-gray');
+    }
     row.innerHTML += `
       <td>${Book.myBooks[Book.myBooks.length - 1].title}</td>
       <td>${Book.myBooks[Book.myBooks.length - 1].author}</td>
