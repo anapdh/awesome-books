@@ -65,7 +65,7 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
     Book.addBook(title, author);
     const list = document.getElementById('books-list');
     const row = document.createElement('tr');
-    if ((Book.myBooks.length - 1) % 2 === 0){
+    if ((Book.myBooks.length - 1) % 2 === 0) {
       row.setAttribute('class', 'color-gray');
     }
     row.innerHTML += `
@@ -78,13 +78,6 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
     deleteBtn.addEventListener('click', () => {
       deleteBtn.parentElement.remove();
     });
-    // const deleteBtn = document.getElementsByClassName('delete');
-    // deleteBtn.innerHTML = 'Remove';
-    // deleteBtn.setAttribute('id', Book.myBooks.length - 1);
-    // row.appendChild(deleteBtn);
-    // deleteBtn.addEventListener('click', () => {
-    // Book.deleteBook(Book.myBooks.length - 1);
-    // deleteBtn.parentElement.remove();
     list.appendChild(row);
   }
 });
