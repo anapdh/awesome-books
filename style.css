@@ -12,15 +12,17 @@ button {
   border-radius: 5px;
 }
 
-.table-wrapper {
-  width: 50%;
+table {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
   border: 1px solid #000;
   border-radius: 5px;
 }
 
 .table-wrapper td {
   padding: 10px;
-  width: 50%;
+  width: 550px;
 }
 
 .table-wrapper button {
@@ -48,6 +50,7 @@ form {
 .form-wrapper button {
   padding: 5px;
   margin-top: 15px;
+  margin-left: 190px;
 }
 
 .color-gray {

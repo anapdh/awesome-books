@@ -9,9 +9,7 @@
  - It has a button to remove a book.
  - Books are saved in localStorage.
  - It has a style following the given general layout.
-=======
  <!-- - It has a button to change the read status of the book. -->
-
 ## Built With
 
 - Html, CSS, and JavaScript
@@ -31,28 +29,6 @@ You can download the code to your personal computer cloning the repository using
 ```
 git clone
 ```
-
-### Usage
-
-To run this project you only need to open the index.html file in a web browser.
-
-## Authors
-
-👩🏼‍💻 **Ana Paula Hübner**
-
-=======
-## Getting Started
-
-To get a local copy up and running follow these simple example steps:
-
-### Install
-
-You can download the code to your personal computer cloning the repository using the following command:
-
-```
-git clone
-```
-
 ### Usage
 
 To run this project you only need to open the index.html file in a web browser.

@@ -30,14 +30,16 @@ const getBooks = () => {
       row.setAttribute('class', 'color-gray');
     }
     const td1 = document.createElement('td');
-    const td2 = document.createElement('td');
-    td1.innerHTML = `${Book.myBooks[i].title}`;
-    td2.innerHTML = `${Book.myBooks[i].author}`;
+    // const td2 = document.createElement('td');
+    td1.setAttribute('class', 'td1');
+    // td2.setAttribute('class', 'td2');
+    td1.innerHTML = `<strong>"${Book.myBooks[i].title}"</strong> by ${Book.myBooks[i].author}`;
+    // td2.innerHTML = `${Book.myBooks[i].author}`;
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = 'Remove';
     deleteBtn.setAttribute('id', i);
     row.appendChild(td1);
-    row.appendChild(td2);
+    // row.appendChild(td2);
     row.appendChild(deleteBtn);
     list.appendChild(row);
 
@@ -69,8 +71,7 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
       row.setAttribute('class', 'color-gray');
     }
     row.innerHTML += `
-      <td>${Book.myBooks[Book.myBooks.length - 1].title}</td>
-      <td>${Book.myBooks[Book.myBooks.length - 1].author}</td>
+      <td><strong>${Book.myBooks[Book.myBooks.length - 1].title}</strong> by ${Book.myBooks[Book.myBooks.length - 1].author}</td>
       <button class="delete" onclick="Book.deleteBook(${Book.myBooks.length - 1})">Remove</button>
     `;
 
