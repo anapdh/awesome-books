@@ -71,7 +71,7 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
       row.setAttribute('class', 'color-gray');
     }
     row.innerHTML += `
-      <td><strong>${Book.myBooks[Book.myBooks.length - 1].title}</strong> by ${Book.myBooks[Book.myBooks.length - 1].author}</td>
+      <td><strong>"${Book.myBooks[Book.myBooks.length - 1].title}"</strong> by ${Book.myBooks[Book.myBooks.length - 1].author}</td>
       <button class="delete" onclick="Book.deleteBook(${Book.myBooks.length - 1})">Remove</button>
     `;
 
