@@ -83,4 +83,30 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
   }
 });
 
+document.getElementById('list').addEventListener('click', () => displayList());
+document.getElementById('add').addEventListener('click', () => displayForm());
+document.getElementById('contact').addEventListener('click', () => displayContact());
+
+const list = document.getElementById('books-table');
+const addForm = document.getElementById('form-wrapper');
+const contact = document.getElementById('contact-info');
+
+const displayList = () => {
+  list.style.display = "block";
+  addForm.style.display = "none";
+  contact.style.display = "none";
+};
+
+const displayForm = () => {
+  list.style.display = "none";
+  addForm.style.display = "block";
+  contact.style.display = "none";
+};
+
+const displayContact = () => {
+  list.style.display = "none";
+  addForm.style.display = "none";
+  contact.style.display = "block";
+}
+
 document.addEventListener('DOMContentLoaded', getBooks());

@@ -13,13 +13,14 @@
   <nav class="top-nav">
     <h3>Awesome books!</h3>
     <div class="nav-options">
-      <h4><a class="nav-link">List</a></h4>
-      <h4><a class="nav-link">Add New</a></h4>
-      <h4><a class="nav-link">Contact</a></h4>
+      <h4><a class="nav-link" id="list">List</a></h4>
+      <h4><a class="nav-link" id="add">Add New</a></h4>
+      <h4><a class="nav-link" id="contact">Contact</a></h4>
     </div>
   </nav>
 
-  <div class="container table-wrapper">
+  <div class="container table-wrapper" id="books-table">
+    <h1 class="list-header">All awesome books</h1>
     <table>
       <tbody id="books-list">
         <tr>
@@ -28,7 +29,7 @@
     </table>
   </div>
 
-  <div class="container form-wrapper">
+  <div class="container form-wrapper" id="form-wrapper">
     <h1>Add a new book!</h1>
     <form id="book-form">
       <div class="inputs">
@@ -43,6 +44,10 @@
       </div>
       <button type="submit" id="submit-btn">Add Book</button>
     </form>
+  </div>
+
+  <div id="contact-info" class="contact-info">
+    <h1>Contact information</h1>
   </div>
 
   <script src="index.js"></script>
