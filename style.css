@@ -56,3 +56,31 @@ form {
 .color-gray {
   background-color: #ddd;
 }
+
+nav.top-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 5%;
+  padding: 0 10px 0 10px;
+}
+
+.nav-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+a.nav-link {
+  margin: 0 5px 0 5px;
+  cursor: pointer;
+}
+
+a.nav-link:hover {
+  color: rgba(59, 128, 255, 0.658);
+  text-decoration: none;
+}
