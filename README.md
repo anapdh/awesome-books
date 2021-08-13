@@ -9,6 +9,8 @@
  - It has a button to remove a book.
  - Books are saved in localStorage.
  - It has a style following the given general layout.
+ - It has a navigation bar with links.
+ - It displays the current time for the user.
  <!-- - It has a button to change the read status of the book. -->
 ## Built With
 
