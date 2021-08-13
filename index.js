@@ -19,7 +19,7 @@ class Book {
   }
 }
 
-if (localStorage.length > 0) {
+if (localStorage.myBooks !== undefined) {
   Book.myBooks = JSON.parse(localStorage.myBooks);
 }
 
@@ -31,16 +31,12 @@ const getBooks = () => {
       row.setAttribute('class', 'color-gray');
     }
     const td1 = document.createElement('td');
-    // const td2 = document.createElement('td');
     td1.setAttribute('class', 'td1');
-    // td2.setAttribute('class', 'td2');
     td1.innerHTML = `<strong>"${Book.myBooks[i].title}"</strong> by ${Book.myBooks[i].author}`;
-    // td2.innerHTML = `${Book.myBooks[i].author}`;
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = 'Remove';
     deleteBtn.setAttribute('id', i);
     row.appendChild(td1);
-    // row.appendChild(td2);
     row.appendChild(deleteBtn);
     list.appendChild(row);
 
@@ -59,30 +55,6 @@ const isUnique = (t, a) => {
   }
   return true;
 };
-
-document.getElementById('book-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  if (isUnique(title, author)) {
-    Book.addBook(title, author);
-    const list = document.getElementById('books-list');
-    const row = document.createElement('tr');
-    if ((Book.myBooks.length - 1) % 2 === 0) {
-      row.setAttribute('class', 'color-gray');
-    }
-    row.innerHTML += `
-      <td><strong>"${Book.myBooks[Book.myBooks.length - 1].title}"</strong> by ${Book.myBooks[Book.myBooks.length - 1].author}</td>
-      <button class="delete" onclick="Book.deleteBook(${Book.myBooks.length - 1})">Remove</button>
-    `;
-
-    const deleteBtn = row.getElementsByClassName('delete')[0];
-    deleteBtn.addEventListener('click', () => {
-      deleteBtn.parentElement.remove();
-    });
-    list.appendChild(row);
-  }
-});
 
 const list = document.getElementById('books-table');
 const addForm = document.getElementById('form-wrapper');
@@ -113,5 +85,31 @@ const displayContact = () => {
 document.getElementById('list').addEventListener('click', () => displayList());
 document.getElementById('add').addEventListener('click', () => displayForm());
 document.getElementById('contact').addEventListener('click', () => displayContact());
+
+document.getElementById('book-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = document.getElementById('title');
+  const author = document.getElementById('author');
+  if (isUnique(title.value, author.value)) {
+    Book.addBook(title.value, author.value);
+    title.value = '';
+    author.value = '';
+    const list = document.getElementById('books-list');
+    const row = document.createElement('tr');
+    if ((Book.myBooks.length - 1) % 2 === 0) {
+      row.setAttribute('class', 'color-gray');
+    }
+    row.innerHTML += `
+    <td><strong>"${Book.myBooks[Book.myBooks.length - 1].title}"</strong> by ${Book.myBooks[Book.myBooks.length - 1].author}</td>
+    <button class="delete" onclick="Book.deleteBook(${Book.myBooks.length - 1})">Remove</button>
+    `;
+    const deleteBtn = row.getElementsByClassName('delete')[0];
+    deleteBtn.addEventListener('click', () => {
+      deleteBtn.parentElement.remove();
+    });
+    list.appendChild(row);
+    displayList();
+  }
+});
 
 document.addEventListener('DOMContentLoaded', getBooks());
